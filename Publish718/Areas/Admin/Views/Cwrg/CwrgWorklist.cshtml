@@ -1,0 +1,245 @@
+﻿@using LanguageResource
+@using X.PagedList
+@using X.PagedList.Mvc
+@using X.PagedList.Mvc.Bootstrap4
+@using AttApiViewModal
+@using StarGateway.ModelApi
+@model ResponseModalX
+@{
+    ViewBag.Title = "CIC 工人列表";
+    int x = 0;
+
+}
+<style>
+    .tradename2row {
+        word-break: break-all;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        line-height: 1.3em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+</style>
+<div class="container ml-0 pl-0">
+    <div class="col-6 p-0 m-0">
+        <span class="small hidden">@ViewBag.WorkerListPathFile</span>
+        @using (Html.BeginForm("CwrgWorklist", "Cwrg", FormMethod.Get, new { @class = "form-inline ml-1 " }))
+        {
+            <div class="form-group form-group-sm">
+                <div class="input-group input-group-sm text-nowrap">
+                    <input id="isExcluded" value="" placeholder="Excluded" style="max-width:70px;" />
+                    <input value="@ViewBag.SiteId" id="SiteId" name="SiteId" type="hidden" />
+                    <input value="@ViewBag.SiteName" id="SiteId" name="SiteId" type="hidden" />
+                    <input value="@ViewBag.ContractId" id="ContractId" name="SiteId" type="hidden" />
+                    <input type="text" value="@ViewBag.Search" id="Search" name="Search" ondblclick="javascript:this.value='';" class="form-control form-control-sm" style="min-width:140px; background-color: #faf9eb;" placeholder="CwrNO,Name" />
+
+                    <!--RegistrationDateRange-->
+                    <input type="text" id="RegistrationDateRange" name="RegistrationDateRange" class="form-control form-control-sm" style="min-width:190px; background-color: #faf9eb;" />
+                    <!--GO!-->
+                    <button type="submit" class="btn btn-sm btn-warning text-white"><i class="fas fa-search"></i> 查 詢</button>
+                    <a type="button" class="btn btn-dark btn-sm text-white ml-2" title="@Lang.GeneralUI_Return" href="@Url.Action("CwrgWorklist","Cwrg",new { Language = LangUtilities.LanguageCode })">
+                        <b>@Lang.GeneralUI_Return</b>
+                    </a>
+                </div>
+            </div>
+        } 
+    </div>
+</div>
+ 
+@if (Model.meta.Success == false)
+{
+    <partial name="~/Views/Base/ResponseModal.cshtml" , for="@Model" />
+}
+else
+{
+    var  listData = Model.data as IPagedList<GoodList>;
+
+    <div class="box-body table-responsive" style="min-height:600px;">
+        <table class="table table-striped table-active table-hover">
+            <tr class="bg-success-gradient">
+                <th>
+                    <div class="text-nowrap" title="CwrNo" data-toggle="tooltip">
+                        <input id="checkSel" type="checkbox" class="checkall" />
+                        <span><i class="fas fa-caret-right mr-1" style="color:mediumslateblue"></i> CwrNo </span>
+                    </div>
+                </th>
+                <th>
+                    <div class="text-nowrap" title="Name" data-toggle="tooltip" style="max-width:80px;overflow:hidden;">
+                        <span><i class="fas fa-caret-right mr-1" style="color:mediumslateblue"> </i>Eng Name</span>
+                    </div>
+                </th>
+                <th>
+                    <div class="text-nowrap" title="Name" data-toggle="tooltip" style="max-width:180px;overflow:hidden;">
+                        <span><i class="fas fa-caret-right mr-1" style="color:mediumslateblue"> </i>Chi Name</span>
+                    </div>
+                </th>
+                <th class="pl-0 pr-0">
+                    <div class="text-nowrap p-0 m-0" title="Start Date of Site Contract Period" data-toggle="tooltip">
+                        <span><i class="fas fa-calendar pl-0" style="color:mediumslateblue"> </i>Contract Start</span>
+                    </div>
+                </th>
+                <th>
+                    <div class="text-nowrap" title="End  Date of Site Contract Period" data-toggle="tooltip">
+                        <span><i class="fas fa-calendar mr-1" style="color:mediumslateblue"> </i>Contract End</span>
+                    </div>
+                </th>
+                <th>
+                    <div class="text-nowrap" title="Last Modify Date" data-toggle="tooltip">
+                        <span><i class="fas fa-calendar mr-1" style="color:mediumslateblue"> </i>Modify</span>
+                    </div>
+                </th>
+                <th>
+                    <div class="text-nowrap" title="Registration Date" data-toggle="tooltip">
+                        <span><i class="fas fa-calendar mr-1" style="color:mediumslateblue"> </i>Reg.</span>
+                    </div>
+                </th>
+                <th>
+                    <div class="text-nowrap" title="Remove Date" data-toggle="tooltip">
+                        <span><i class="fas fa-calendar mr-1" style="color:mediumslateblue"> </i>Del</span>
+                    </div>
+                </th>
+                <th>
+                    <div class="text-nowrap" title="Trade Name | Job Name 工種" data-toggle="tooltip">
+                        <span><i class="fas  fa-caret-right" style="color:mediumslateblue"> </i>Trade</span>
+                    </div>
+                </th>
+                <th>
+                    <span class="text-nowrap" title="Check In DataBase & Operations" data-toggle="tooltip"> Import</span>
+                </th>
+                <th>
+                    <span class="text-nowrap" title="Check In DataBase & Operations" data-toggle="tooltip"> CARD DETAILS</span>
+                </th>
+            </tr>
+
+            @foreach (var item in listData)
+            {
+                x++;
+        <tr id="@string.Format("tr{0}",item.CwrNo)">
+            <td id="@string.Format("td{0}",item.CwrNo)" class="text-omit small text-nowrap" data-toggle="tooltip" title="@item.CwrNo">
+                <div id="@string.Format("div{0}",item.CwrNo)" class="text-nowrap d-flex flex-row" style="cursor:pointer;">
+                    <input id="checkSel" type="checkbox" class="checkbox check" />
+                    <div id="@string.Format("CLIDBOARD{0}",item.CwrNo)" class="p-0 text-dark clipboard" style="cursor:pointer;font-size:22px;"
+                         title="@Lang.GeneralUI_ClickToCopy" onclick="javascript:getClipboardText()" data-clipboard-text="@item.CwrNo">@item.CwrNo</div>
+                    </div>
+                </td>
+                <td class="text-nowrap">
+                    <span class="h5" data-toggle="tooltip" title="English Name">@item.NameEng</span>
+                </td>
+                <td class="text-nowrap">
+                    <span class="h5" data-toggle="tooltip" title="English Name">@item.NameChi</span>
+                </td>
+                <td class="text-nowrap">
+                    <span class="h6  p-2 ml-0 mr-0">@Html.Raw(item.StartDate)</span>
+                </td>
+                <td class="text-nowrap">
+                    <span class="h6  p-2 ml-0 mr-0">@Html.Raw(item.EndDate)</span>
+                </td>
+
+                <td class="text-nowrap" title="Last Modify Date : @item.LastModifyDate" data-toggle="tooltip">
+                    <span class="h6  p-2 ml-0 mr-0">@Html.Raw(item.LastModifyDate.Substring(0, 10))</span>
+                </td>
+                <td class="text-nowrap" data-toggle="tooltip" title="Registration Date:@item.RegistrationDate">
+                    <span class="h6  p-2">@Html.Raw(item.RegistrationDate.Substring(0, 10))</span>
+                </td>
+                <td class="text-nowrap">
+                    @if (!string.IsNullOrEmpty(item.RemoveDate))
+                    {
+                        <span class="h6 p-2" data-toggle="tooltip" title="Removed Date:@item.RemoveDate">
+                            @Html.Raw(item.RemoveDate.Substring(0, 10))
+                        </span>
+                    }
+                    else
+                    {
+                        <b>@item.RemoveDate</b>
+                    }
+                </td>
+                <td style="max-width:120px;padding:0;">
+                    <div class="d-flex flex-column bd-highlight">
+                        <div class="p-0 bd-highlight">
+                            <span class="h6 small tradename2row clipboard p-0" data-toggle="tooltip" title="Job Name/Trade Name Click to copy"
+                                  style="cursor:pointer;" onclick="javascript:getClipboardText()" data-clipboard-text="@item.PractisingTrade">
+                                @item.PractisingTrade
+                            </span>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <a class="btn btn-sm" target="_blank" href="@Url.Action("CwrgWorkerCardSave","Cwrg", new {TradeId = "GREEN", EnName = item.NameEng, CnName =  item.NameChi, CwrNo =  item.CwrNo,ExpiredDate=item.EndDate })">IMPORT</a>
+                </td>
+
+                <td>
+                    <a class="btn btn-sm" target="_blank" href="@Url.Action("CwrgWorkerCardSave","Cwrg", new {CwrNo =  item.CwrNo})">DETAILS</a>
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+
+    <div class="btn-xs btn-groups-sm d-inline-block">
+       @Html.PagedListPager((IPagedList)listData, page => Url.Action("CwrgWorklist", "Cwrg", new { Language = LangUtilities.LanguageCode, search = ViewBag.Search, registrationDateRange = ViewBag.RegistrationDateRange, page = page }), new PagedListRenderOptions
+       {
+           ContainerDivClasses = new[] { "pagination pagination-sm" },
+           LiElementClasses = new[] { "page-item" },
+           PageClasses = new[] { "page-link loading" },
+           MaximumPageNumbersToDisplay = 15
+       })
+         
+        <button class="btn btn-group-sm btn-primary" hidden onclick="return confirm('確定需要批量導入工人嗎?');">批量導入</button>
+    </div> 
+}
+<script>
+    $(function () {
+        $('input[name="RegistrationDateRange"]').daterangepicker({
+            timePicker: false,
+            startDate: moment().add(-365, 'days'),
+            endDate: moment(),
+            locale: {
+                format: 'YYYY-MM-DD'
+            }
+        });
+        $('input[name="RegistrationDateRange"]').val("@ViewBag.RegistrationDateRange");
+    });
+
+    $("input").on("change", function () {
+
+        if ($("#IsExpired").prop("checked") == true && $("#NotExpired").prop("checked") == true) {
+            layer.msg("Tips:不能同時選擇過期和不過期的!只能二選一", { icon: 5, time: 4000, shift: 6 });
+        }
+        if ($("#IsNotRemoved").prop("checked") == true && $("#IsRemoved").prop("checked") == true) {
+            layer.msg("Tips:不能同時選擇登記和非登記的!!只能二選一", { icon: 5, time: 4000, shift: 6 });
+        }
+        //$(this).parents(".address").nextAll(".address:eq(0)").find("input").eq($(this).index()).prop("checked", currentValue).trigger("change")
+    });
+
+    function checkboxed(objName) {
+        var objNameList = $(objName);
+        if (null != objNameList) {
+
+            for (var i = 0; i < objNameList.length; i++) {
+                objNameList[i].checked = "checked";
+            }
+        }
+    }
+
+    function uncheckboxed(objName) {
+        var objNameList = $(objName);
+        if (null != objNameList) {
+            for (var i = 0; i < objNameList.length; i++) {
+                objNameList[i].checked = "";
+            }
+        }
+    }
+    $('#checkSel').click(function () {
+        if ($(this).is(':checked')) {
+            checkboxed(".checkbox")
+        }
+        else {
+            uncheckboxed(".checkbox")
+        }
+    });
+</script>
+
+<partial name="CRWG/CwrgUpdateWorker" />
+<partial name="CRWG/CwrgUpdateApiWorker" />
+<partial name="CRWG/CwrgCreateGoodList" />

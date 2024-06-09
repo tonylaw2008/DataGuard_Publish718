@@ -1,0 +1,989 @@
+﻿<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+<!-- Uncomment this line if you want to dataTool extension
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/extension/dataTool.min.js"></script>
+-->
+<!-- Uncomment this line if you want to use gl extension
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+-->
+<!-- Uncomment this line if you want to echarts-stat extension
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+-->
+<!-- Uncomment this line if you want to use map
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+-->
+<!-- Uncomment these two lines if you want to use bmap extension
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/extension/bmap.min.js"></script>
+-->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Info boxes -->
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info elevation-1"><i class="fa fa-user"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">工人流失率 TurnOver Rate</span>
+                        <span class="info-box-number">
+                            <span class="CurrentTurnOverRate">0</span>
+                            <small>%</small>
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fa fa-users-cog"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">TOTAL WORKER</span>
+                        <span class="info-box-number CurrentTotalEmployee">0</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- fix for small devices only -->
+            <div class="clearfix hidden-md-up"></div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-success elevation-1"><i class="fa fa-moon"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">二判</span>
+                        <span class="info-box-number CurrentTotalContractor">0 </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-warning elevation-1"><i class="fa fa-users"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">NEW MEMBERS</span>
+                        <span class="info-box-number CurrentNewMenber">0</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+            <!-- Left col -->
+            <div class="col-md-8">
+
+                <!-- /.card -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- DIRECT CHAT -->
+                        <div class="card direct-chat direct-chat-warning">
+                            <div class="card-header">
+                                <h3 class="card-title">Worker Notice</h3>
+
+                                <div class="card-tools">
+                                    <span data-toggle="tooltip" title="3 New Messages" class="badge badge-warning">3</span>
+                                    <button type="button" class="btn btn-tool" data-widget="collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"
+                                            data-widget="chat-pane-toggle">
+                                        <i class="fa fa-comments"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-widget="remove">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <!-- Conversations are loaded here -->
+                                <div class="direct-chat-messages">
+                                    <!-- Message. Default to the left -->
+                                    <div class="direct-chat-msg">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name float-left">HoiDa Pan</span>
+                                            <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                                        </div>
+                                        <!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="~/AdminLTE3/dist/img/user1-128x128.jpg" alt="message user image">
+                                        <!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            如果你再不回來開OT,肯定扣你人工,特此知會!
+                                        </div>
+                                        <!-- /.direct-chat-text -->
+                                    </div>
+                                    <!-- /.direct-chat-msg -->
+                                    <!-- Message to the right -->
+                                    <div class="direct-chat-msg right">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name float-right">FenLai Lueng</span>
+                                            <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                                        </div>
+                                        <!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="~/AdminLTE3/dist/img/user3-128x128.jpg" alt="message user image">
+                                        <!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            這樣太沒人性了吧,我將會坐飛機回來!
+                                        </div>
+                                        <!-- /.direct-chat-text -->
+                                    </div>
+                                    <!-- /.direct-chat-msg -->
+                                    <!-- Message. Default to the left -->
+                                    <div class="direct-chat-msg">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name float-left">HoiDa Pan</span>
+                                            <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
+                                        </div>
+                                        <!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="~/AdminLTE3/dist/img/user1-128x128.jpg" alt="message user image">
+                                        <!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            這就對了,下次不要重犯了,老闆已經說:今個月加你雙倍人工
+                                        </div>
+                                        <!-- /.direct-chat-text -->
+                                    </div>
+                                    <!-- /.direct-chat-msg -->
+                                    <!-- Message to the right -->
+                                    <div class="direct-chat-msg right">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name float-right">PatTin Lueng</span>
+                                            <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
+                                        </div>
+                                        <!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="~/AdminLTE3/dist/img/user3-128x128.jpg" alt="message user image">
+                                        <!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            好的,無論如何我都罷工示威!
+                                        </div>
+                                        <!-- /.direct-chat-text -->
+                                    </div>
+                                    <!-- /.direct-chat-msg -->
+
+                                </div>
+                                <!--/.direct-chat-messages-->
+                                <!-- Contacts are loaded here -->
+                                <div class="direct-chat-contacts">
+                                    <ul class="contacts-list">
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="~/AdminLTE3/dist/img/user1-128x128.jpg">
+
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        Count Dracula
+                                                        <small class="contacts-list-date float-right">2/28/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">How have you been? I was...</span>
+                                                </div>
+                                                <!-- /.contacts-list-info -->
+                                            </a>
+                                        </li>
+                                        <!-- End Contact Item -->
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="~/AdminLTE3/dist/img/user7-128x128.jpg">
+
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        Sarah Doe
+                                                        <small class="contacts-list-date float-right">2/23/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">I will be waiting for...</span>
+                                                </div>
+                                                <!-- /.contacts-list-info -->
+                                            </a>
+                                        </li>
+                                        <!-- End Contact Item -->
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="~/AdminLTE3/dist/img/user3-128x128.jpg">
+
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        Nadia Jolie
+                                                        <small class="contacts-list-date float-right">2/20/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">I'll call you back at...</span>
+                                                </div>
+                                                <!-- /.contacts-list-info -->
+                                            </a>
+                                        </li>
+                                        <!-- End Contact Item -->
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="~/AdminLTE3/dist/img/user5-128x128.jpg">
+
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        Nora S. Vans
+                                                        <small class="contacts-list-date float-right">2/10/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">Where is your new...</span>
+                                                </div>
+                                                <!-- /.contacts-list-info -->
+                                            </a>
+                                        </li>
+                                        <!-- End Contact Item -->
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="~/AdminLTE3/dist/img/user6-128x128.jpg">
+
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        John K.
+                                                        <small class="contacts-list-date float-right">1/27/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">Can I take a look at...</span>
+                                                </div>
+                                                <!-- /.contacts-list-info -->
+                                            </a>
+                                        </li>
+                                        <!-- End Contact Item -->
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="~/AdminLTE3/dist/img/user128x128.jpg">
+
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        Kenneth M.
+                                                        <small class="contacts-list-date float-right">1/4/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">Never mind I found...</span>
+                                                </div>
+                                                <!-- /.contacts-list-info -->
+                                            </a>
+                                        </li>
+                                        <!-- End Contact Item -->
+                                    </ul>
+                                    <!-- /.contacts-list -->
+                                </div>
+                                <!-- /.direct-chat-pane -->
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <form action="#" method="post">
+                                    <div class="input-group">
+                                        <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                                        <span class="input-group-append">
+                                            <button type="button" class="btn btn-warning">Send</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.card-footer-->
+                        </div>
+                        <!--/.direct-chat -->
+                    </div>
+                    <!-- /.col -->
+
+                    <div class="col-md-6">
+                        <!-- USERS LIST -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Latest Members</h3>
+
+                                <div class="card-tools">
+                                    <span class="badge badge-danger">8 New Members</span>
+                                    <button type="button" class="btn btn-tool" data-widget="collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-widget="remove">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body p-0">
+                                <ul class="users-list clearfix">
+                                    <li>
+                                        <img src="~/AdminLTE3/dist/img/user1-128x128.jpg" width="50" alt="User Image">
+                                        <a class="users-list-name" href="#">Alexander Pierce</a>
+                                        <span class="users-list-date">Today</span>
+                                    </li>
+                                    <li>
+                                        <img src="~/AdminLTE3/dist/img/user8-128x128.jpg" width="50" alt="User Image">
+                                        <a class="users-list-name" href="#">Norman</a>
+                                        <span class="users-list-date">Yesterday</span>
+                                    </li>
+                                    <li>
+                                        <img src="~/AdminLTE3/dist/img/user7-128x128.jpg" width="50" alt="User Image">
+                                        <a class="users-list-name" href="#">Jane</a>
+                                        <span class="users-list-date">12 Jan</span>
+                                    </li>
+                                    <li>
+                                        <img src="~/AdminLTE3/dist/img/user6-128x128.jpg" width="50" alt="User Image">
+                                        <a class="users-list-name" href="#">John</a>
+                                        <span class="users-list-date">12 Jan</span>
+                                    </li>
+                                    <li>
+                                        <img src="~/AdminLTE3/dist/img/1658829105443.png" width="50" alt="User Image">
+                                        <a class="users-list-name" href="#">Alexander</a>
+                                        <span class="users-list-date">13 Jan</span>
+                                    </li>
+                                </ul>
+                                <!-- /.users-list -->
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer text-center">
+                                <a href="javascript::">View All Users</a>
+                            </div>
+                            <!-- /.card-footer -->
+                        </div>
+                        <!--/.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+                <!-- TABLE: LATEST ORDERS -->
+                <div class="card">
+                    <div class="card-header border-transparent">
+                        <h3 class="card-title">Latest Attendance Record</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-widget="remove">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table m-0">
+                                <thead>
+                                    <tr>
+                                        <th>Attendance ID</th>
+                                        <th>Item</th>
+                                        <th>Status</th>
+                                        <th>Occur Date Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                                        <td>地勤清潔工</td>
+                                        <td><span class="badge badge-success">FACE</span></td>
+                                        <td>
+                                            <div class="sparkbar" data-color="#00a65a" data-height="20">2022-7-26 18:21:05</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                                        <td>切磚工</td>
+                                        <td><span class="badge badge-warning">CARD</span></td>
+                                        <td>
+                                            <div class="sparkbar" data-color="#f39c12" data-height="20">2022-7-26 18:11:05</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                                        <td>切磚工</td>
+                                        <td><span class="badge badge-danger">FINGER</span></td>
+                                        <td>
+                                            <div class="sparkbar" data-color="#f56954" data-height="20">2022-7-26 18:23:05</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                                        <td>天秤操手</td>
+                                        <td><span class="badge badge-info">FACE RECO</span></td>
+                                        <td>
+                                            <div class="sparkbar" data-color="#00c0ef" data-height="20">2022-7-26 18:24:05</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                                        <td>玻璃切割工</td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
+                                        <td>
+                                            <div class="sparkbar" data-color="#f39c12" data-height="20">2022-7-26 18:25:05</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                                        <td>水泥工/油漆工</td>
+                                        <td><span class="badge badge-danger">FACE RECO</span></td>
+                                        <td>
+                                            <div class="sparkbar" data-color="#f56954" data-height="20">2022-7-26 18:29:05</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                                        <td>木工(大工)</td>
+                                        <td><span class="badge badge-success">FACE RECO</span></td>
+                                        <td>
+                                            <div class="sparkbar" data-color="#00a65a" data-height="20">2022-7-26 18:31:05</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                        <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
+                        <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+
+            <div class="col-md-4">
+                <!-- Info Boxes Style 2 -->
+                <div class="info-box mb-3 bg-warning">
+                    <span class="info-box-icon"><i class="fa fa-tag"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">累計總工人數</span>
+                        <span class="info-box-number CurrentTotalEmployee">0</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+                <div class="info-box mb-3 bg-success">
+                    <span class="info-box-icon"><i class="fa fa-heart-o"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">考勤管理事件</span>
+                        <span class="info-box-number CurrentTapCardEvent">0</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+                <div class="info-box mb-3 bg-danger">
+                    <span class="info-box-icon"><i class="fa fa-cloud-download"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">拍卡次數統計</span>
+                        <span class="info-box-number CurrentTapCardTotalTimes">0</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+                <div class="info-box mb-3 bg-info">
+                    <span class="info-box-icon"><i class="fa fa-comment-o"></i></span>
+
+                    <div class="info-box-content"> 
+                        <div class="d-flex flex-row">
+                            <div class="pr-3">
+                                <span class="info-box-text">男</span>
+                                <span class="info-box-number CurrentMalePeople" title="hours">0</span>
+                            </div>
+                            <div class="pr-3">
+                                <span class="info-box-text">女</span>
+                                <span class="info-box-number CurrentFemalePeople" title="hours">0</span>
+                            </div>
+                            <div class="">
+                                <span class="info-box-text">UNKOWN</span>
+                                <span class="info-box-number CurrentSexUmkownPeople" title="hours">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">地盤人力分佈</h3> 
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-widget="remove">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="chart-responsive" id="pieChartDIV1"> 
+                            </div>
+                            <img src="~/AdminLTE3/dist/img/piex12564.png" width="370" />
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer bg-white p-0">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    中美建築地盤1號 &nbsp;&nbsp; 在工 36人 收工6人
+                                    <span class="float-right text-danger">
+                                        <i class="fa fa-arrow-down text-sm"></i>
+                                        19%
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                   遊樂園項目地盤 &nbsp;&nbsp; 在工 78人 收工9人
+                                    <span class="float-right text-success">
+                                        <i class="fa fa-arrow-up text-sm"></i> 8%
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    迪士尼機場項目地盤 &nbsp;&nbsp; 在工 61人 收工7人
+                                    <span class="float-right text-warning">
+                                        <i class="fa fa-arrow-left text-sm"></i> 7%
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.footer -->
+                </div>
+                <!-- /.card -->
+                <!-- PRODUCT LIST -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">最近人力資源排班</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-widget="remove">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <ul class="products-list product-list-in-card pl-2 pr-2">
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="~/AdminLTE3/dist/img/user7-128x128.jpg" alt="Product Image" class="img-size-50">
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript:void(0)" class="product-title">
+                                        NG HOI LE
+                                        <span class="badge badge-warning float-right">$HK1800</span>
+                                    </a>
+                                    <span class="product-description">
+                                        調配到 深港大灣區地盤
+                                    </span>
+                                </div>
+                            </li>
+                            <!-- /.item -->
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="~/AdminLTE3/dist/img/1658829076253.png" alt="Product Image" class="img-size-50">
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript:void(0)" class="product-title">
+                                        NG CHOU CHIN
+                                        <span class="badge badge-info float-right">$HK700</span>
+                                    </a>
+                                    <span class="product-description">
+                                        調配到 機場三跑地盤
+                                    </span>
+                                </div>
+                            </li>
+                            <!-- /.item -->
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="~/AdminLTE3/dist/img/20220726174932.png" alt="Product Image" class="img-size-50">
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript:void(0)" class="product-title">
+                                        Chen Ming De <span class="badge badge-danger float-right">
+                                            $HK350
+                                        </span>
+                                    </a>
+                                    <span class="product-description">
+                                        調配到海港城新地盤 9號
+                                    </span>
+                                </div>
+                            </li>
+                            <!-- /.item -->
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="~/AdminLTE3/dist/img/user6-128x128.jpg" alt="Product Image" class="img-size-50">
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript:void(0)" class="product-title">
+                                        LEE LAI FA
+                                        <span class="badge badge-success float-right">$HK399</span>
+                                    </a>
+                                    <span class="product-description">
+                                        調配到 焚化廠 地盤
+                                    </span>
+                                </div>
+                            </li>
+                            <!-- /.item -->
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer text-center">
+                        <a href="javascript:void(0)" class="uppercase">View All Products</a>
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!--/. container-fluid -->
+</section>
+<!-- /.content -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header no-border">
+                    <div class="d-flex justify-content-between">
+                        <h3 class="card-title">Attendance Trendy</h3>
+                        <a href="javascript:void(0);">View Report</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex">
+                        <p class="d-flex flex-column">
+                            <span class="text-bold text-lg">820</span>
+                            <span>Attendance trendy</span>
+                        </p>
+                        <p class="ml-auto d-flex flex-column text-right">
+                            <span class="text-success">
+                                <i class="fa fa-arrow-up"></i> 12.5%
+                            </span>
+                            <span class="text-muted">Since last week</span>
+                        </p>
+                    </div>
+                    <!-- /.d-flex -->
+
+                    <div class="position-relative mb-4">
+                        <canvas id="visitors-chart" height="200"></canvas>
+                    </div>
+
+                    <div class="d-flex flex-row justify-content-end">
+                        <span class="mr-2">
+                            <i class="fa fa-square text-primary"></i> This Week
+                        </span>
+
+                        <span>
+                            <i class="fa fa-square text-gray"></i> Last Week
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card -->
+
+            <div class="card">
+                <div class="card-header no-border">
+                    <h3 class="card-title">Attendance Ratio %</h3>
+                    <div class="card-tools">
+                        <a href="#" class="btn btn-tool btn-sm">
+                            <i class="fa fa-download"></i>
+                        </a>
+                        <a href="#" class="btn btn-tool btn-sm">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped table-valign-middle">
+                        <thead>
+                            <tr>
+                                <th>WORKER NAME</th>
+                                <th>MINUTES</th>
+                                <th>PERCENT</th>
+                                <th>More</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="~/AdminLTE3/dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                    GOK PUI
+                                </td>
+                                <td>27 mins</td>
+                                <td>
+                                    <small class="text-success mr-1">
+                                        <i class="fa fa-arrow-up"></i>
+                                        12%
+                                    </small>
+                                    130 Mins Total
+                                </td>
+                                <td>
+                                    <a href="#" class="text-muted">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="~/AdminLTE3/dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                    ANDY POK
+                                </td>
+                                <td>17 mins</td>
+                                <td>
+                                    <small class="text-warning mr-1">
+                                        <i class="fa fa-arrow-down"></i>
+                                        0.5%
+                                    </small>
+                                    110 Mins Total
+                                </td>
+                                <td>
+                                    <a href="#" class="text-muted">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="~/AdminLTE3/dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                    MARY LEE
+                                </td>
+                                <td>21 mins</td>
+                                <td>
+                                    <small class="text-danger mr-1">
+                                        <i class="fa fa-arrow-down"></i>
+                                        3%
+                                    </small>
+                                    69 Mins Total
+                                </td>
+                                <td>
+                                    <a href="#" class="text-muted">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="~/AdminLTE3/dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                    BILL GATES
+                                    <span class="badge bg-danger">NEW</span>
+                                </td>
+                                <td>23 mins</td>
+                                <td>
+                                    <small class="text-success mr-1">
+                                        <i class="fa fa-arrow-up"></i>
+                                        63%
+                                    </small>
+                                    120 Mins Total
+                                </td>
+                                <td>
+                                    <a href="#" class="text-muted">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col-md-6 -->
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header no-border">
+                    <div class="d-flex justify-content-between">
+                        <h3 class="card-title">DEPARTMENT OF FINANCE  </h3>
+                        <a href="javascript:void(0);">View Report</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex">
+                        <p class="d-flex flex-column">
+                            <span class="text-bold text-lg">3 Hours 13 mins</span>
+                            <span>Attendace Over Time</span>
+                        </p>
+                        <p class="ml-auto d-flex flex-column text-right">
+                            <span class="text-success">
+                                <i class="fa fa-arrow-up"></i> 45mins
+                            </span>
+                            <span class="text-muted">Since last month</span>
+                        </p>
+                    </div>
+                    <!-- /.d-flex -->
+
+                    <div class="position-relative mb-4">
+                        <canvas id="sales-chart" height="200"></canvas>
+                    </div>
+
+                    <div class="d-flex flex-row justify-content-end">
+                        <span class="mr-2">
+                            <i class="fa fa-square text-primary"></i> This year
+                        </span>
+
+                        <span>
+                            <i class="fa fa-square text-gray"></i> Last year
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card -->
+
+            <div class="card">
+                <div class="card-header no-border">
+                    <h3 class="card-title">Department Overview</h3>
+                    <div class="card-tools">
+                        <a href="#" class="btn btn-sm btn-tool">
+                            <i class="fa fa-download"></i>
+                        </a>
+                        <a href="#" class="btn btn-sm btn-tool">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+                        <p class="text-success text-xl">
+                            <i class="ion ion-ios-refresh-empty"></i>
+                        </p>
+                        <p class="d-flex flex-column text-right">
+                            <span class="font-weight-bold">
+                                <i class="ion ion-android-arrow-up text-success"></i> 12%
+                            </span>
+                            <span class="text-muted" title="OT 工時和WorkTime的比率">OVERTIME RATE</span>
+                        </p>
+                    </div>
+                    <!-- /.d-flex -->
+                    <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+                        <p class="text-warning text-xl">
+                            <i class="ion ion-android-arrow-down"></i>
+                        </p>
+                        <p class="d-flex flex-column text-right">
+                            <span class="font-weight-bold">
+                                <i class="ion ion-ios-people-outline text-warning"></i> 0.8%
+                            </span>
+                            <span class="text-muted">ATTENDANCE RATE</span>
+                        </p>
+                    </div>
+                    <!-- /.d-flex -->
+                    <div class="d-flex justify-content-between align-items-center mb-0">
+                        <p class="text-danger text-xl">
+                            <i class="ion ion-ios-people-outline"></i>
+                        </p>
+                        <p class="d-flex flex-column text-right">
+                            <span class="font-weight-bold">
+                                <i class="ion ion-android-arrow-down text-danger"></i> 1%
+                            </span>
+                            <span class="text-muted">OVER TIME RATE</span>
+                        </p>
+                    </div>
+                    <!-- /.d-flex -->
+                </div>
+            </div>
+        </div>
+        <!-- /.col-md-6 -->
+    </div>
+    <!-- /.row -->
+</div>
+
+
+<script>
+    $.get("/en-US/home/GetStatementPanel", function (data, status) {
+        if (status != undefined) {
+            if (status == "success") {
+                $(".CurrentTurnOverRate").html(data.CurrentTurnOverRate);
+                $(".CurrentTotalEmployee").html(data.CurrentTotalEmployee);
+                $(".CurrentTotalContractor").html(data.CurrentTotalContractor);
+                $('.CurrentNewMenber').html(data.CurrentNewMenber);
+                $(".CurrentTapCardEvent").html(data.CurrentTapCardEvent);
+                $(".CurrentTapCardTotalTimes").html(data.CurrentTapCardTotalTimes);
+                $(".CurrentTotalEmployee").html(data.CurrentTotalEmployee);
+
+                $(".CurrentMalePeople").html(data.CurrentMalePeople);
+                $(".CurrentFemalePeople").html(data.CurrentFemalePeople);
+                $(".CurrentSexUmkownPeople").html(data.CurrentSexUmkownPeople);
+            }
+        }
+    });
+</script>
+
+
+<script type="text/javascript">
+    var dom = document.getElementById('pieChartDIV1');
+    var myChart = echarts.init(dom, null, {
+        renderer: 'canvas',
+        useDirtyRect: false
+    });
+    var app = {};
+
+    var option;
+
+    option = {
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            top: '5%',
+            left: 'center'
+        },
+        series: [
+            {
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '40',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    { value: 99, name: '房處盤1' },
+                    { value: 69, name: '高爾夫盤' },
+                    { value: 146, name: '中美地盤1號' },
+                    { value: 39, name: '海上遊樂園地盤' },
+                    { value: 159, name: '迪士尼地盤' }
+                ]
+            }
+        ]
+    };
+
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+</script>
+
+<!-- AdminLTE -->
+<script src="dist/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="~/AdminLTE3/plugins/chart.js/Chart.min.js"></script>
+<script src="~/AdminLTE3/dist/js/demo.js"></script>
+<script src="~/AdminLTE3/dist/js/pages/dashboard3.js"></script>
+<script src="~/AdminLTE3/dist/js/pages/dashboard2.js"></script>
+
+
+

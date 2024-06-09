@@ -1,0 +1,79 @@
+﻿@using LanguageResource
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Star On Engineering Ltd. Star On System Ltd.</title>
+    @Scripts.Render("~/bundles/jquery")
+
+    <script src="~/AdminLTE3/plugins/popper205/popper.js"></script>
+    <!-- Bootstrap -->
+    @Styles.Render("~/Content/bootstrap3.7")
+    @Scripts.Render("~/bundles/bootstrap3.7")
+
+    @Styles.Render("~/Content/mainStyle")
+    @Styles.Render("~/AdminLTE3/font-awesome")
+    <script src="https://kit.fontawesome.com/ad51e5f97b.js" crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <style>
+
+        .modal-backdrop {
+            z-index: 0;
+        }
+
+        @@font-face {
+            font-family: Microsoft YaHei, simhei,Verdana, Arial, Helvetica, sans-serif !important;
+            font-weight: normal;
+            font-style: normal;
+            src: url('/fonts/yahei.ttf') format('truetype');
+        }
+
+        body {
+            font-family: Microsoft YaHei, simhei,Verdana, Arial, Helvetica, sans-serif !important;
+            background: -webkit-linear-gradient(bottom, rgb(234, 230, 211) 0%, rgb(238, 223, 198) 32%, rgba(242, 213, 180, 0.1) 78%, rgba(244, 208, 171, 0.98) 100%);
+            background: -o-linear-gradient(bottom, rgb(234, 230, 211) 0%, rgb(238, 223, 198) 32%, rgba(242, 213, 180, 0.1) 78%, rgba(244, 208, 171, 0.98) 100%);
+            background: -moz-linear-gradient(bottom, rgb(234, 230, 211) 0%, rgb(238, 223, 198) 32%, rgba(242, 213, 180, 0.1) 78%, rgba(244, 208, 171, 0.98) 100%);
+            background: linear-gradient(to top, rgb(234, 230, 211) 0%, rgb(238, 223, 198) 32%, rgba(242, 213, 180, 0.1) 78%, rgba(244, 208, 171, 0.98) 100%);
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://starind.com.hk/web/Star_Industries/shou_ye.html" target="_blank" class = "navbar-brand">Star On System</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.RouteLink(Lang.GeneralUI_HomePage, new { Action = "MainCom", Controller = "Home", Language = ViewBag.Language })</li>
+                    <li>@Html.RouteLink(Lang.GeneralUI_About, new { Action = "About", Controller = "Home", Language = ViewBag.Language })</li>
+                    <li>@Html.RouteLink(Lang.GeneralUI_Contact, new { Action = "Contact", Controller = "Home", Language = ViewBag.Language })</li>
+                    <li>@Html.RouteLink(Lang.GeneralUI_AttendanceSystem, new { Action = "Index", Controller = "Home", Language = ViewBag.Language })</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content" style="min-height:100%;">
+        @RenderBody() 
+    </div>
+    <footer class="footer">
+        <hr />
+        <p>&copy; @DateTime.Now.Year - Star On System</p>
+    </footer>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿@using LanguageResource
+@using Common
+@using AttendanceBussiness
+@using DataGuard.Utilities
+@using StarGateway.GateWay
+@using StarGateway.ModelApi
+@model DataGuard.Areas.LeaveView
+@{
+   
+    CWRG cWRG = new CWRG();
+    cWRG.InitializeSecurityToken();
+    List<Contract> contracts= cWRG.GetContractNoByAccount();
+
+    List<SelectListItem> selectContractors = EnumHelperX.CreateSelect<Contract>(contracts, "ContractShortName", "RowId",string.Empty);
+}
+
+<div class="container" style="width:800px;">
+    @using (Ajax.BeginForm("CwrgChangeContract", "Cwrg", new AjaxOptions { HttpMethod = "post", OnSuccess = "handleCwrgChangeContract", OnBegin = "onBeginSubmit", OnFailure = "errCwrgChangeContract", LoadingElementId = "Loading" }, new { @class = "form-horizontal", name = "form_ApplyLeaveAddNew", id = "form_ApplyLeaveAddNew" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label class="control-label col-12" for="ContractorId">撤換地盤合約</label>
+            <div class="input-group">
+                @Html.DropDownList("ContractorId", selectContractors as IEnumerable<SelectListItem>, Lang.GeneralUI_Select, new { Name = "ContractorId", Id = "ContractorId", @class = "h4 ContractorId form-control ml-2", data_toggle = "tooltip", title = "ContractorId" })
+                <div class="input-group-append input-group-sm">
+                    <span class="input-group-text border-left-0" style="background-color:#faf9eb">
+                        <i class="fa fa-asterisk" style="color:red;font-size:11px"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <button type="submit" id="AddNewComfirmed" class="btn btn-primary ml-2"> OK </button>
+        </div>
+    }
+</div>
+
+<script>
+    var layer_index = 0;
+
+    function handleCwrgChangeContract(result) {
+
+        layer.closeAll();
+
+        layer.open({
+            title: '@Lang.GeneralUI_ReturnResult'
+            , content: result.meta.Message
+            , btn: '@Lang.GeneralUI_OK'
+        });
+    }
+    function errCwrgChangeContract(data) {
+
+        alert( "--client AddNew");
+    }
+
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        console.log("-----");
+    });
+</script>
+
+

@@ -1,0 +1,158 @@
+﻿[
+  {
+    "IndustryId": "IN00001",
+    "IndustryName": "商用服务业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00002",
+    "IndustryName": "饮食业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00003",
+    "IndustryName": "通讯业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00005",
+    "IndustryName": "住户服务业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00006",
+    "IndustryName": "教育服务业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00007",
+    "IndustryName": "金融业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00008",
+    "IndustryName": "政府部门",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00009",
+    "IndustryName": "医院",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00010",
+    "IndustryName": "酒店业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00011",
+    "IndustryName": "进出口贸易",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00012",
+    "IndustryName": "保险业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00013",
+    "IndustryName": "电子制品业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00014",
+    "IndustryName": "金属制品业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00015",
+    "IndustryName": "塑胶制品业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00016",
+    "IndustryName": "纺织业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00017",
+    "IndustryName": "服装制品业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00018",
+    "IndustryName": "地产业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00019",
+    "IndustryName": "零售业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00020",
+    "IndustryName": "仓库业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00021",
+    "IndustryName": "运输业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00022",
+    "IndustryName": "福利机构",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00023",
+    "IndustryName": "批发业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00024",
+    "IndustryName": "其他社区及社会服务业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00025",
+    "IndustryName": "其他制造业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00026",
+    "IndustryName": "其他个人服务业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN60006",
+    "IndustryName": "建造业",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  }
+]

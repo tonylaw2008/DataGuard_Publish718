@@ -1,0 +1,96 @@
+﻿@using LanguageResource
+@using DataGuard.Areas.Admin.Controllers
+@model EditEmployeeModel 
+    @{ 
+        ViewBag.Title = "地盤工人管理";
+    }
+<!-- Main content -->
+
+<div class="container-fluid">
+    <!-- Info boxes -->
+    
+    <!-- /.row -->
+    <div class="row center-block">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title"><i class="fas fa-user" style="color:forestgreen;font-weight:bold"></i>@Model.FullName 工人ID編輯 <span class="h5 bg-light-gradient pl-2" style="border:dashed;border-color:beige;border-width:thin">  &nbsp;</span></h5>
+                    <a href="" name="reco"></a>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="container pl-lg-5 pl-md-5  col-lg-offset-6 col-md-offset-6">
+                        <div class="col-lg-5 col-md-5 col-sm-12  ">
+                            <!--STEP1 BEGIN-->
+                            @using (Ajax.BeginForm("EditEmployeeIdModal", "Employee", new AjaxOptions { HttpMethod = "post", OnSuccess = "handleEditEmployeeIdModal", OnFailure = "errEditEmployeeIdModal", LoadingElementId = "Loading" }, new { @class = "form-horizontal", id = "form_EditEmployeeIdModal" }))
+                            {
+                                <input type="hidden" id="FullName" name="EmployeeId" value="@Model.FullName" />
+                                <div class="form-group  mb-2 col-10">
+                                    <label class="control-label Lbl_EditEmployeeIdModal_EmployeeName" id="employeeName" for="EmployeeId">
+                                        <label class="badge  badge-secondary p-2"><i class="fas fa-user  text-white"></i>工人ID</label>
+
+                                    </label>
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(model => model.EmployeeId, new { @class = "form-control form-control-sm col-8" })
+
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group  mb-2 col-10">
+                                    <label class="control-label" id="employeeName" for="SourceEmployeeId">
+                                        <label class="badge  badge-secondary p-2"><i class="fas fa-user text-white"></i> 新工人ID</label>
+                                    </label>
+                                    <div class="input-group">
+
+                                        @Html.TextBoxFor(model => model.NewEmployeeId, new { @class = " form-control form-control-sm col-8" })
+                                    </div>
+                                   
+                                </div>
+
+                                <div class="form-group  mb-2 col-10">
+
+                                    <div class="input-group">
+                                        <input type="submit" class=" form-control form-control-sm col-8" value="Submit" />
+                                    </div>
+                                </div>
+                            }
+                            <!--STEP1 END-->
+                        </div>
+                    </div>
+                </div>
+                <!-- ./card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+</div><!--/. container-fluid -->
+<!-- /.content -->
+  
+<script>
+      
+    function handleEditEmployeeIdModal(data) {
+
+        console.log(data);
+        layer.closeAll();
+       
+        layer.open({
+            title: 'Return'
+            , content: data.meta.message
+            , btn: 'OK'
+        });
+          
+    }
+    function errEditEmployeeIdModal(data) {
+         
+        console.log(data);
+        alert("server error");
+
+    }
+</script>

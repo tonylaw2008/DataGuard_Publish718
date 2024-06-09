@@ -1,0 +1,128 @@
+﻿@using LanguageResource
+@using StarGateway.ModelApi
+@model CwrgUpdateWorker
+<div class="card card-primary card-outline" id="CwrgUpdateWorkerBox">
+     
+        <div class="card-header">
+            <h5 class="card-title">CIC IMPORT WORKER</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="card-body pl-5">
+            <div class="row">
+                <div class="col-4 ">
+                    @using (Ajax.BeginForm("CwrgUpdateWorkerPost", "Cwrg", new { LanguageCode = @LangUtilities.LanguageCode }, new AjaxOptions { HttpMethod = "post", OnSuccess = "retCwrgUpdateWorker", OnFailure = "errDetailsAddUpdate", LoadingElementId = "Loading" }, new { @class = "form-horizontal" }))
+                    {
+                        <input id="SiteId" name="SiteId" type="hidden" value="@Model.SiteId" />
+                        <input id="TradeId" name="TradeId" type="hidden" value="GREEN" />
+                        <input id="EmployeeId" name="EmployeeId" type="hidden" value="@Model.EmployeeId" />
+                        <input id="SiteName" name="SiteName" type="hidden" value="@Model.SiteName" />
+                        <input id="EndDate" name="EndDate" type="hidden" value="@Model.EndDate" />
+
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12 h3 text-primary mr-2" style="overflow-x:hidden;"
+                                   data-toggle="tooltip" title="Name From CIC" id="lblCWRG_fullName"></label>
+                        </div>
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12" for="EnName" data-toggle="tooltip" title="@Lang.Employee_EnglishName">
+                                <i class="fas fa-file-signature" style="color:forestgreen"></i>@Lang.Employee_EnglishName
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="EnName" name="EnName" value="@Model.EnName" class="text-dark form-control col-10" style="font-weight:800;" />
+                                <div class="input-group-append input-group-sm">
+                                    <span class="input-group-text border-left-0" style="background-color:#faf9eb" data-toggle="tooltip" title="@Lang.Employee_EnglishName">
+                                        <i class="fas fa-angle-double-right" style="color:forestgreen;font-size:11px"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12" for="CnName" data-toggle="tooltip" title="@Lang.Employee_CnName">
+                                <i class="fas fa-file-signature" style="color:forestgreen"></i>@Lang.Employee_CnName
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="CnName" name="CnName" class="text-dark form-control col-10" value="@Model.CnName" style="font-weight:800;" />
+                                <div class="input-group-append input-group-sm">
+                                    <span class="input-group-text border-left-0" style="background-color:#faf9eb" data-toggle="tooltip" title="@Lang.Employee_CnName ">
+                                        <i class="fas fa-angle-double-right" style="color:forestgreen;font-size:11px"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12" for="CwrNo" data-toggle="tooltip" title="Cwr No(CIC)">
+                                <i class="fas fa-file-signature" style="color:forestgreen"></i>Cwr No(CIC)
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="CwrNo" name="CwrNo" value="@Model.CwrNo" class="text-danger form-control col-10" style="font-weight:800;" />
+                                <div class="input-group-append input-group-sm">
+                                    <span class="input-group-text border-left-0" style="background-color:#faf9eb" data-toggle="tooltip" title="Cwr No(CIC)">
+                                        <i class="fas fa-angle-double-right" style="color:forestgreen;font-size:11px"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12" for="ExpiredDate" data-toggle="tooltip" title="Expired Date">
+                                <i class="fas fa-file-signature" style="color:forestgreen"></i>Expired Date
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="EndDate" name="EndDate" value="@Model.EndDate" class="text-danger form-control col-10" style="font-weight:800;" />
+                                <div class="input-group-append input-group-sm">
+                                    <span class="input-group-text border-left-0" style="background-color:#faf9eb" data-toggle="tooltip" title="End Date">
+                                        <i class="fas fa-angle-double-right" style="color:forestgreen;font-size:11px"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group  pt-2 pb-1">
+                            <div class="d-flex flex-row-reverse bd-highlight ">
+                                <div class="bd-highlight pr-2">
+                                    <button type="submit" class="btn btn-primary flat AntiSubmit mr-4" data-toggle="tooltip" title="The Contract will be bind to this site.">
+                                        IMPORT TO SYSTEM
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                </div>
+            <div class="row">
+                      
+            </div>
+        </div> 
+</div>
+<script>
+      
+    function retCwrgUpdateWorker(res) {
+        console.log(res);
+        if (res.meta.Success) {
+
+            layer.open({
+                title: '@Lang.GeneralUI_ReturnResult @Lang.GeneralUI_Success'
+                , content: res.meta.Message
+                , btn: '@Lang.GeneralUI_OK'
+            });
+           
+        } else {
+
+            layer.open({
+                title: '@Lang.GeneralUI_ReturnResult @Lang.GeneralUI_Fail'
+                , content: res.meta.Message
+                , btn: '@Lang.GeneralUI_OK'
+            });
+        }
+    } 
+
+    function errCwrgUpdateWorker(data) { 
+        console.log({ "data": data });
+        alert("FUNC::CwrgUpdateWorkerPost:ERROR");
+    }
+</script>
+  
+ 

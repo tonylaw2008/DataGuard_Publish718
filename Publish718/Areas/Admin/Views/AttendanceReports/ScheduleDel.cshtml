@@ -1,0 +1,98 @@
+﻿@using LanguageResource
+@using DataGuard.Areas.Admin.Controllers
+@model ScheduleDelModel
+@{
+    ViewBag.Title = "地盤工人排班名冊管理";
+}
+
+<div class="container-fluid">
+    <!-- Info boxes -->
+    <!-- /.row -->
+    <div class="row center-block">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title"><i class="fas fa-user" style="color:forestgreen;font-weight:bold"></i>排班名冊編輯 <span class="h5 bg-light-gradient pl-2" style="border:dashed;border-color:beige;border-width:thin">  &nbsp;</span></h5>
+                    <a href="" name="reco"></a>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="container pl-lg-5 pl-md-5  col-lg-offset-6 col-md-offset-6">
+                        <div class="col-lg-5 col-md-5 col-sm-12  ">
+                            <!--STEP1 BEGIN-->
+                            @using (Ajax.BeginForm("EditEmployeeEmailModal", "Employee", new AjaxOptions { HttpMethod = "post", OnSuccess = "handleEditEmployeeEmailModal", OnBegin = "onBeginSubmit", OnFailure = "errEditEmployeeEmailModal", LoadingElementId = "Loading" }, new { @class = "form-horizontal", name = "form_EditEmployeeEmailModal", id = "form_EditEmployeeEmailModal" }))
+                            {
+
+                                <div class="form-group  mb-2 col-10">
+                                    <label class="control-label LblEmployeeId" id="employeeName" for="EmployeeId">
+                                        <label class="badge badge-secondary p-2"><i class="fas fa-user  text-white"></i>工人ID</label>
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" id="EmployeeId" name="EmployeeId" value="@Model.EmployeeId" class="form-control form-control-sm col-8" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group  mb-2 col-10">
+                                    <label class="control-label" id="lblScheduleId" for="ScheduleId">
+                                        <label class="badge  badge-secondary p-2"><i class="fas fa-email text-white"></i> 排班ID</label>
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" id="ScheduleId" name="ScheduleId" value="@Model.ScheduleId" class="form-control form-control-sm col-8" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group  mb-2 col-10">
+                                    <label class="control-label" id="employeeName" for="SourceEmployeeId">
+                                        <label class="badge  badge-secondary p-2"><i class="fas fa-email text-white"></i> 排班編號</label>
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" id="ShiftAbbrId" name="ShiftAbbrId" value="@Model.ShiftAbbrId" class="form-control form-control-sm col-8" />
+                                    </div>
+                                </div>
+                                <div class="form-group  mb-2 col-10">
+                                    <label class="control-label" id="employeeName" for="SourceEmployeeId">
+                                        <label class="badge  badge-secondary p-2"><i class="fas fa-email text-white"></i> 排班日期</label>
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" id="ScheduleDate" name="ScheduleDate" value="@string.Format("{0:yyyy-MM-dd HH:mm:ss}",Model.ScheduleDate)" class="form-control form-control-sm datepiacker col-8" />
+                                    </div>
+                                </div>
+                                <div class="form-group  mb-2 col-10">
+
+                                    <div class="input-group">
+                                        <input type="submit" class=" form-control form-control-sm col-8" value="Submit" />
+                                    </div>
+                                </div>
+                            }
+                            <!--STEP1 END-->
+                        </div>
+                    </div>
+                </div>
+                <!-- ./card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+</div><!--/. container-fluid -->
+<!-- /.content -->
+
+<script>
+
+    function handleEditEmployeeEmailModal(data) {
+
+        layer.closeAll();
+
+        layer.open({
+            title: 'Return'
+            , content: data.Message
+            , btn: 'OK'
+        });
+
+    }
+</script>

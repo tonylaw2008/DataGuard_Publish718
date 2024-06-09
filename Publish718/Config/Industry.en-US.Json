@@ -1,0 +1,158 @@
+﻿[
+  {
+    "IndustryId": "IN00001",
+    "IndustryName": "Business Service Industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00002",
+    "IndustryName": "Catering industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00003",
+    "IndustryName": "Communications industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00005",
+    "IndustryName": "Household Service Industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00006",
+    "IndustryName": "Educational Service Industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00007",
+    "IndustryName": "Financial industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00008",
+    "IndustryName": "Government department",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00009",
+    "IndustryName": "Hospital",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00010",
+    "IndustryName": "Hotel industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00011",
+    "IndustryName": "Import and Export trade",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00012",
+    "IndustryName": "Insurance",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00013",
+    "IndustryName": "Electronic products industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00014",
+    "IndustryName": "Metal products industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00015",
+    "IndustryName": "Plastic products industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00016",
+    "IndustryName": "Textile industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00017",
+    "IndustryName": "Apparel Industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00018",
+    "IndustryName": "Real estate",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00019",
+    "IndustryName": "Retail",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00020",
+    "IndustryName": "Warehouse Industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00021",
+    "IndustryName": "Transportation",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00022",
+    "IndustryName": "Welfare agency",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00023",
+    "IndustryName": "Wholesale industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00024",
+    "IndustryName": "Other community and social service industries",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00025",
+    "IndustryName": "Other manufacturing",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN00026",
+    "IndustryName": "Other personal services",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  },
+  {
+    "IndustryId": "IN60006",
+    "IndustryName": "Construction industry",
+    "EnIndustryName": "",
+    "ParentsIndustryId": 0
+  }
+]

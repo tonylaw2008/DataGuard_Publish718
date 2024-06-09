@@ -1,0 +1,174 @@
+﻿@using LanguageResource
+@using StarGateway.ModelApi
+@model WorkerDetail
+
+
+@if (Model == null)
+{
+    <span> NO WORKER DETAILS</span>
+}
+else
+{
+    <div class="card card-primary card-outline" id="CwrgUpdateWorkerBox">
+
+        <div class="card-header">
+            <h5 class="card-title">CIC WORKER SAVE</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="card-body pl-5">
+            <div class="row">
+                <div class="col-4 ">
+                    @using (Ajax.BeginForm("CwrgWorkerCardSave", "Cwrg", new { LanguageCode = @LangUtilities.LanguageCode }, new AjaxOptions { HttpMethod = "post", OnSuccess = "retCwrgWorkerCardSave", OnFailure = "errCwrgWorkerCardSave", LoadingElementId = "Loading" }, new { @class = "form-horizontal" }))
+                    {
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12 h3 text-primary mr-2" style="overflow-x:hidden;"
+                                   data-toggle="tooltip" title="Name From CIC" id="lblCWRG_fullName"></label>
+                        </div>
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12" for="EnglishName" data-toggle="tooltip" title="@Lang.Employee_EnglishName">
+                                <i class="fas fa-file-signature" style="color:forestgreen"></i>EnglishName
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="EnglishName" name="EnglishName" value="@Model.EnglishName" class="text-dark form-control col-10" style="font-weight:800;" />
+                                <div class="input-group-append input-group-sm">
+                                    <span class="input-group-text border-left-0" style="background-color:#faf9eb" data-toggle="tooltip" title=" EnglishName">
+                                        <i class="fas fa-angle-double-right" style="color:forestgreen;font-size:11px"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12" for="ChineseName" data-toggle="tooltip" title="@Lang.Employee_CnName">
+                                <i class="fas fa-file-signature" style="color:forestgreen"></i>@Lang.Employee_CnName
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="ChineseName" name="ChineseName" class="text-dark form-control col-10" value="@Model.ChineseName" style="font-weight:800;" />
+                                <div class="input-group-append input-group-sm">
+                                    <span class="input-group-text border-left-0" style="background-color:#faf9eb" data-toggle="tooltip" title="@Lang.Employee_CnName ">
+                                        <i class="fas fa-angle-double-right" style="color:forestgreen;font-size:11px"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12" for="CwrNo" data-toggle="tooltip" title="Cwr No(CIC)">
+                                <i class="fas fa-file-signature" style="color:forestgreen"></i>Cwr No(CIC)
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="RegistrationNumber" name="RegistrationNumber" value="@Model.RegistrationNumber" class="text-danger form-control col-10" style="font-weight:800;" />
+                                <div class="input-group-append input-group-sm">
+                                    <span class="input-group-text border-left-0" style="background-color:#faf9eb" data-toggle="tooltip" title="Cwr No(CIC)">
+                                        <i class="fas fa-angle-double-right" style="color:forestgreen;font-size:11px"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12" for="CardSerialNumber" data-toggle="tooltip" title="CardSerialNumber">
+                                <i class="fas fa-file-signature" style="color:forestgreen"></i>Card Serial Number
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="CardSerialNumber" name="CardSerialNumber" value="@Model.CardSerialNumber" class="text-danger form-control col-10" style="font-weight:800;" />
+                                <div class="input-group-append input-group-sm">
+                                    <span class="input-group-text border-left-0" style="background-color:#faf9eb" data-toggle="tooltip" title="Cwr No(CIC)">
+                                        <i class="fas fa-angle-double-right" style="color:forestgreen;font-size:11px"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12" for="RegistrationExpiryDate" data-toggle="tooltip" title="RegistrationExpiryDate">
+                                <i class="fas fa-file-signature" style="color:forestgreen"></i>Registration ExpiryDate
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="RegistrationExpiryDate" name="RegistrationExpiryDate" value="@Model.RegistrationExpiryDate" class="text-danger form-control col-10" style="font-weight:800;" />
+                                <div class="input-group-append input-group-sm">
+                                    <span class="input-group-text border-left-0" style="background-color:#faf9eb" data-toggle="tooltip" title="RegistrationExpiryDate">
+                                        <i class="fas fa-angle-double-right" style="color:forestgreen;font-size:11px"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12" for="GreenCardNumber" data-toggle="tooltip" title="GreenCardNumber">
+                                <i class="fas fa-file-signature" style="color:forestgreen"></i>Green Card Number
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="GreenCardNumber" name="GreenCardNumber" value="@Model.GreenCardNumber" class="text-danger form-control col-10" style="font-weight:800;" />
+                                <div class="input-group-append input-group-sm">
+                                    <span class="input-group-text border-left-0" style="background-color:#faf9eb" data-toggle="tooltip" title="GreenCardNumber">
+                                        <i class="fas fa-angle-double-right" style="color:forestgreen;font-size:11px"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group  mb-2">
+                            <label class="control-label col-12" for="GreenCardExpiryDate" data-toggle="tooltip" title="GreenCardExpiryDate">
+                                <i class="fas fa-file-signature" style="color:forestgreen"></i>Green Card ExpiryDate
+                            </label>
+                            <div class="input-group">
+                                <input type="text" id="GreenCardExpiryDate" name="GreenCardExpiryDate" value="@Model.GreenCardExpiryDate" class="text-danger form-control col-10" style="font-weight:800;" />
+                                <div class="input-group-append input-group-sm">
+                                    <span class="input-group-text border-left-0" style="background-color:#faf9eb" data-toggle="tooltip" title="GreenCardExpiryDate">
+                                        <i class="fas fa-angle-double-right" style="color:forestgreen;font-size:11px"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group  pt-2 pb-1">
+                            <div class="d-flex flex-row-reverse bd-highlight ">
+                                <div class="bd-highlight pr-2">
+                                    <button type="submit" class="btn btn-primary flat AntiSubmit mr-4" data-toggle="tooltip" title="UPDATE CARD DETAILS">
+                                        UPDATE
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </div>
+}
+
+
+<script>
+
+    function retCwrgWorkerCardSave(res) {
+        console.log(res);
+        if (res.meta.Success) {
+
+            layer.open({
+                title: '@Lang.GeneralUI_ReturnResult @Lang.GeneralUI_Success'
+                , content: res.meta.Message
+                , btn: '@Lang.GeneralUI_OK'
+            });
+
+        } else {
+
+            layer.open({
+                title: '@Lang.GeneralUI_ReturnResult @Lang.GeneralUI_Fail'
+                , content: res.meta.Message
+                , btn: '@Lang.GeneralUI_OK'
+            });
+        }
+    }
+
+    function errCwrgWorkerCardSave(data) {
+        console.log({ "data": data });
+        alert("FUNC::CwrgUpdateWorkerPost:ERROR");
+    }
+</script>
+
